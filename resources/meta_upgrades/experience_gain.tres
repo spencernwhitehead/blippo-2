@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=3 format=3 uid="uid://70iscdkjmfk4"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_q3tay"]
+[ext_resource type="Texture2D" uid="uid://n5bvonrntndu" path="res://resources/meta_upgrades/yumbo_1.png" id="2_7mqau"]
+
+[resource]
+script = ExtResource("1_q3tay")
+id = "experience_gain"
+max_quantity = 5
+cost = 10
+title = "increase experience"
+description = "slightly increases XP dropped by enemies! mmmmmm yummy XP eat em up!"
+sprite = ExtResource("2_7mqau")

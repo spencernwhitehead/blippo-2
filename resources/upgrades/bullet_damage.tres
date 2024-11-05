@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://bxeg2svdyocvj"]
+
+[ext_resource type="Texture2D" uid="uid://tsgu57wyk1nr" path="res://resources/upgrades/bullet_damage.png" id="1_k3vj0"]
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_sylyc"]
+
+[resource]
+script = ExtResource("1_sylyc")
+id = "bullet_damage"
+max_quantity = 0
+name = "bullet damage"
+description = "increases bullet damage by 15%"
+drawing = ExtResource("1_k3vj0")

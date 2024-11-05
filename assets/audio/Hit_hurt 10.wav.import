@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cutqj2nsk6yb1"
+path="res://.godot/imported/Hit_hurt 10.wav-2b47ff8cb2dd8cecfe4f77c7e2ff7d18.sample"
+
+[deps]
+
+source_file="res://assets/audio/Hit_hurt 10.wav"
+dest_files=["res://.godot/imported/Hit_hurt 10.wav-2b47ff8cb2dd8cecfe4f77c7e2ff7d18.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

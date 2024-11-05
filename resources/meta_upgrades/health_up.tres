@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=3 format=3 uid="uid://0j34gg8h3xln"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_mhtva"]
+[ext_resource type="Texture2D" uid="uid://bdab3sp1j1nj5" path="res://resources/meta_upgrades/health_up.png" id="2_elhx6"]
+
+[resource]
+script = ExtResource("1_mhtva")
+id = "health_up"
+max_quantity = 5
+cost = 10
+title = "more health"
+description = "gives you a bit of extra health! very good for not dying!"
+sprite = ExtResource("2_elhx6")

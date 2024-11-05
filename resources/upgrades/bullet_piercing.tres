@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://csx84ls8yr2vq"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_gue1y"]
+[ext_resource type="Texture2D" uid="uid://m0uwmxslv6hq" path="res://resources/upgrades/bullet_piercing_art_alt.png" id="1_qsrt7"]
+
+[resource]
+script = ExtResource("1_gue1y")
+id = "bullet_piercing"
+max_quantity = 5
+name = "bullet piercing"
+description = "bullet pierces through one additional enemy"
+drawing = ExtResource("1_qsrt7")

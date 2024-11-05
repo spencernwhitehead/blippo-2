@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=3 format=3 uid="uid://b3tlrlp3jwrer"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_81elk"]
+[ext_resource type="Texture2D" uid="uid://co2mskqqnwqdh" path="res://resources/meta_upgrades/upgrades_up_icon.png" id="2_tumbn"]
+
+[resource]
+script = ExtResource("1_81elk")
+id = "upgrades_up"
+max_quantity = 1
+cost = 20
+title = "additional upgrade"
+description = "gives you an extra upgrade option on every level up!"
+sprite = ExtResource("2_tumbn")

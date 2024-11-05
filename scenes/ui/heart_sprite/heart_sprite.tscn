@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=3 uid="uid://dv2brlhbiu20h"]
+
+[ext_resource type="Texture2D" uid="uid://r2w2k6k5vk5v" path="res://scenes/ui/heart_sprite/heart_0.png" id="1_5kaap"]
+[ext_resource type="Script" path="res://scenes/ui/heart_sprite/heart_sprite.gd" id="1_7h8ri"]
+[ext_resource type="Texture2D" uid="uid://q8o8agrp3q0y" path="res://scenes/ui/heart_sprite/heart_3.png" id="1_x8a6b"]
+[ext_resource type="Texture2D" uid="uid://dp7trqu8ghsqu" path="res://scenes/ui/heart_sprite/heart_1.png" id="2_76pl0"]
+[ext_resource type="Texture2D" uid="uid://t0ekuhdjkxbs" path="res://scenes/ui/heart_sprite/heart_4.png" id="2_d5tgq"]
+[ext_resource type="Texture2D" uid="uid://dsc06q20eunp6" path="res://scenes/ui/heart_sprite/heart_2.png" id="3_ssyi4"]
+[ext_resource type="Texture2D" uid="uid://4shyvwa5uosg" path="res://scenes/ui/heart_sprite/heart_5.png" id="4_p0fxk"]
+[ext_resource type="Texture2D" uid="uid://fpy7uj14c7cj" path="res://scenes/ui/heart_sprite/heart_7.png" id="5_6p0et"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4x8pn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_x8a6b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_d5tgq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_x8a6b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_d5tgq")
+}, {
+"duration": 0.25,
+"texture": ExtResource("4_p0fxk")
+}, {
+"duration": 0.25,
+"texture": ExtResource("5_6p0et")
+}],
+"loop": false,
+"name": &"break",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_76pl0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ssyi4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_76pl0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ssyi4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_76pl0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ssyi4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_76pl0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ssyi4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_76pl0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ssyi4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_76pl0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ssyi4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_76pl0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ssyi4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_5kaap")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5kaap")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 3.0
+}]
+
+[node name="HeartSprite" type="MarginContainer"]
+offset_right = 100.0
+offset_bottom = 100.0
+script = ExtResource("1_7h8ri")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(50, 50)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_4x8pn")
+autoplay = "default"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

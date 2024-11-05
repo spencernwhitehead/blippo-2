@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjdk7t60aqvq0"]
+
+[ext_resource type="Script" path="res://scenes/component/spridget_drop_component.gd" id="1_dt0ld"]
+[ext_resource type="PackedScene" uid="uid://djro0spa7m0fh" path="res://scenes/spridget/spridget.tscn" id="2_4nwph"]
+
+[node name="SpridgetDropComponent" type="Node"]
+script = ExtResource("1_dt0ld")
+spridget_scene = ExtResource("2_4nwph")

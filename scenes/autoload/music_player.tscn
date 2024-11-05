@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://blpb5lbte00ws"]
+
+[ext_resource type="AudioStream" uid="uid://xbhml0ya5olj" path="res://assets/audio/menu.ogg" id="1_n3o3s"]
+[ext_resource type="Script" path="res://scenes/autoload/music_player.gd" id="2_ll6g3"]
+[ext_resource type="AudioStream" uid="uid://c845xeh4u108s" path="res://assets/audio/buggies.mp3" id="3_4in0w"]
+[ext_resource type="AudioStream" uid="uid://b4qxkp623084l" path="res://assets/audio/shop.ogg" id="4_7sbeb"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1_n3o3s")
+volume_db = -10.0
+autoplay = true
+bus = &"music"
+script = ExtResource("2_ll6g3")
+main_menu_song = ExtResource("1_n3o3s")
+intro_level_song = ExtResource("3_4in0w")
+shop_song = ExtResource("4_7sbeb")
+fade_in_damper = 20.0

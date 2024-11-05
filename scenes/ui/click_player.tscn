@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpuqdd4r33por"]
+
+[ext_resource type="AudioStream" uid="uid://d36idgt8842ks" path="res://assets/audio/click_004.ogg" id="1_tnrne"]
+[ext_resource type="Script" path="res://scenes/ui/click_player.gd" id="2_3b6vx"]
+
+[node name="ClickPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_tnrne")
+volume_db = -6.0
+pitch_scale = 0.4
+bus = &"sfx"
+script = ExtResource("2_3b6vx")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

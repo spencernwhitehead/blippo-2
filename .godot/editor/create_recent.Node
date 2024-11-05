@@ -1,0 +1,14 @@
+Control
+CanvasLayer
+TextureRect
+AudioStreamPlayer
+AnimatedSprite2D
+CheckBox
+HBoxContainer
+Timer
+CollisionShape2D
+Area2D
+CanvasModulate
+ColorRect
+AnimationPlayer
+Sprite2D

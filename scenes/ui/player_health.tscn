@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://dotjalrhc257q"]
+
+[ext_resource type="Script" path="res://scenes/ui/player_health.gd" id="1_ybdsg"]
+[ext_resource type="PackedScene" uid="uid://dv2brlhbiu20h" path="res://scenes/ui/heart_sprite/heart_sprite.tscn" id="2_irwmr"]
+
+[node name="PlayerHealth" type="CanvasLayer"]
+script = ExtResource("1_ybdsg")
+heart_sprite_scene = ExtResource("2_irwmr")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_direction = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1752.0
+offset_top = 23.0
+offset_bottom = 1025.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+
+[node name="EmptyHeartsContainer" type="GridContainer" parent="MarginContainer"]
+modulate = Color(0, 0, 0, 0.501961)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/h_separation = 110
+theme_override_constants/v_separation = 110
+columns = 5
+
+[node name="HeartsContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/h_separation = 110
+theme_override_constants/v_separation = 110
+columns = 5

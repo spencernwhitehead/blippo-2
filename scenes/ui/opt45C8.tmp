@@ -1,0 +1,329 @@
+[gd_scene load_steps=7 format=3 uid="uid://dujgnkyx2tuu1"]
+
+[ext_resource type="Script" path="res://scenes/ui/options_menu.gd" id="1_jc3uf"]
+[ext_resource type="PackedScene" uid="uid://vmshcyept0m3" path="res://scenes/ui/sound_button.tscn" id="4_h235h"]
+
+[sub_resource type="Animation" id="Animation_82gul"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/OuterMarginContainer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/OuterMarginContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/OuterMarginContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -60)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/OuterMarginContainer:anchors_preset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [15]
+}
+
+[sub_resource type="Animation" id="Animation_aiols"]
+resource_name = "in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/OuterMarginContainer:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.5, 1),
+"update": 0,
+"values": [Vector2(1, 0.125), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/OuterMarginContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/OuterMarginContainer:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(-2000, 0), Vector2(0, -60)]
+}
+
+[sub_resource type="Animation" id="Animation_u8hvp"]
+resource_name = "out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/OuterMarginContainer:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1.5),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.125, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/OuterMarginContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/OuterMarginContainer:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.5, 0.5),
+"update": 0,
+"values": [Vector2(0, -60), Vector2(0, 1200)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oym2c"]
+_data = {
+"RESET": SubResource("Animation_82gul"),
+"in": SubResource("Animation_aiols"),
+"out": SubResource("Animation_u8hvp")
+}
+
+[node name="OptionsMenu" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_jc3uf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oym2c")
+}
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OuterMarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 608)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 100
+
+[node name="OptionsContainer" type="PanelContainer" parent="Control/OuterMarginContainer"]
+self_modulate = Color(0.741176, 0.423529, 0.290196, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"Angled3DPanelContainer"
+
+[node name="PanelMarginContainer" type="MarginContainer" parent="Control/OuterMarginContainer/OptionsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="PanelVBoxContainer" type="VBoxContainer" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 170
+
+[node name="Control" type="Control" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer"]
+layout_mode = 2
+
+[node name="OptionsTitlePanelContainer" type="PanelContainer" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/Control"]
+layout_mode = 2
+offset_left = 384.0
+offset_right = 985.0
+offset_bottom = 277.0
+scale = Vector2(0.6, 0.6)
+size_flags_horizontal = 4
+theme_type_variation = &"Solid3DPanelContainer"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/Control/OptionsTitlePanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/Control/OptionsTitlePanelContainer/MarginContainer"]
+self_modulate = Color(0, 0.623529, 0.996078, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 128
+text = "options"
+horizontal_alignment = 1
+
+[node name="SettingsContainer" type="VBoxContainer" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="MusicContainer" type="VBoxContainer" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer"]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer/MusicContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer/MusicContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="SfxContainer" type="VBoxContainer" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer"]
+layout_mode = 2
+
+[node name="SfxLabel" type="Label" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer/SfxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "SFX Volume"
+
+[node name="SfxSlider" type="HSlider" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer/SfxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="MouseControlContainer" type="VBoxContainer" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer/MouseControlContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 25
+text = "Enable Mouse Controls"
+flat = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 525
+
+[node name="WindowContainer" type="VBoxContainer" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WindowLabel" type="Label" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer/HBoxContainer/WindowContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "FullScreen"
+
+[node name="WindowButton" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer/HBoxContainer/WindowContainer" instance=ExtResource("4_h235h")]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+text = "windowed"
+
+[node name="WindowContainer2" type="VBoxContainer" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InvisLabel" type="Label" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer/HBoxContainer/WindowContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 32
+text = "FullScreen"
+
+[node name="ResetSaveButton" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer/HBoxContainer/WindowContainer2" instance=ExtResource("4_h235h")]
+self_modulate = Color(1, 1, 1, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+text = "reset save"
+
+[node name="BackButton" parent="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer" instance=ExtResource("4_h235h")]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "back"
+
+[connection signal="value_changed" from="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer/MusicContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer/SfxContainer/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="toggled" from="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer/MouseControlContainer/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer/HBoxContainer/WindowContainer/WindowButton" to="." method="_on_window_button_pressed"]
+[connection signal="pressed" from="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer/HBoxContainer/WindowContainer2/ResetSaveButton" to="." method="_on_reset_save_button_pressed"]
+[connection signal="pressed" from="Control/OuterMarginContainer/OptionsContainer/PanelMarginContainer/PanelVBoxContainer/SettingsContainer/BackButton" to="." method="_on_back_button_pressed"]

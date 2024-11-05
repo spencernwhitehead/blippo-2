@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://bt28kwtruy8jl"]
+
+[ext_resource type="Script" path="res://scenes/managers/enemy_manager.gd" id="1_2tt3v"]
+[ext_resource type="PackedScene" uid="uid://dbqij2cfu8sk4" path="res://scenes/worm_enemy/worm_enemy.tscn" id="2_h02qr"]
+[ext_resource type="PackedScene" uid="uid://bcprcoh4powle" path="res://scenes/pincer_enemy/pincer_enemy.tscn" id="3_7iwoq"]
+[ext_resource type="PackedScene" uid="uid://bat0e35ichys8" path="res://scenes/snail_enemy/snail_enemy.tscn" id="4_sihbd"]
+[ext_resource type="PackedScene" uid="uid://c8eqb15g8mnu3" path="res://scenes/skater_enemy/skater_enemy.tscn" id="5_2v7bj"]
+
+[node name="EnemyManager" type="Node"]
+script = ExtResource("1_2tt3v")
+basic_enemy_scene = ExtResource("2_h02qr")
+yellow_enemy_scene = ExtResource("3_7iwoq")
+snail_enemy_scene = ExtResource("4_sihbd")
+skater_enemy_scene = ExtResource("5_2v7bj")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,144 @@
+[gd_scene load_steps=23 format=3 uid="uid://c66nkor7c1tno"]
+
+[ext_resource type="Texture2D" uid="uid://bwdqhulc6re2l" path="res://scenes/ui/shop/clumbo/clumbo_default_0.png" id="1_okxmb"]
+[ext_resource type="Texture2D" uid="uid://d1wgtwoqkyrs0" path="res://scenes/ui/shop/clumbo/clumbo_default_1.png" id="2_6fu1n"]
+[ext_resource type="Texture2D" uid="uid://cnrkpcd27ynhh" path="res://scenes/ui/shop/clumbo/clumbo_default_2.png" id="3_gijsf"]
+[ext_resource type="Texture2D" uid="uid://cjaiyl6vs1eqy" path="res://scenes/ui/shop/clumbo/clumbo_default_3.png" id="4_tbomn"]
+[ext_resource type="Texture2D" uid="uid://beeu7yxe04qp8" path="res://scenes/ui/shop/clumbo/clumbo_00.png" id="5_0v3qi"]
+[ext_resource type="Texture2D" uid="uid://chjh2usv83amq" path="res://scenes/ui/shop/clumbo/clumbo_01.png" id="6_pqjeq"]
+[ext_resource type="Texture2D" uid="uid://b7y0roffvgw4e" path="res://scenes/ui/shop/clumbo/clumbo_02.png" id="7_faalf"]
+[ext_resource type="Texture2D" uid="uid://0cxh3wp3ev6o" path="res://scenes/ui/shop/clumbo/clumbo_03.png" id="8_64jqu"]
+[ext_resource type="Texture2D" uid="uid://bt6sw3akciakt" path="res://scenes/ui/shop/clumbo/clumbo_04.png" id="9_5f1r8"]
+[ext_resource type="Texture2D" uid="uid://dndgej37o4cum" path="res://scenes/ui/shop/clumbo/clumbo_05.png" id="10_n7qxn"]
+[ext_resource type="Texture2D" uid="uid://b4etc8pomcedi" path="res://scenes/ui/shop/clumbo/clumbo_06.png" id="11_1uyiq"]
+[ext_resource type="Texture2D" uid="uid://4wc5ksojn1ii" path="res://scenes/ui/shop/clumbo/clumbo_07.png" id="12_jkyur"]
+[ext_resource type="Texture2D" uid="uid://blmujyvimnjb7" path="res://scenes/ui/shop/clumbo/clumbo_08.png" id="13_1fpkt"]
+[ext_resource type="Texture2D" uid="uid://ddb56cacpe1bp" path="res://scenes/ui/shop/clumbo/clumbo_09.png" id="14_055yb"]
+[ext_resource type="Texture2D" uid="uid://dj58mbv4ln327" path="res://scenes/ui/shop/clumbo/clumbo_10.png" id="15_glmub"]
+[ext_resource type="Texture2D" uid="uid://b2rdbvu0xvov7" path="res://scenes/ui/shop/clumbo/clumbo_11.png" id="16_1cydp"]
+[ext_resource type="Texture2D" uid="uid://chmi035ycyoqr" path="res://scenes/ui/shop/clumbo/clumbo_12.png" id="17_px68h"]
+[ext_resource type="Texture2D" uid="uid://32301b7unxyd" path="res://scenes/ui/shop/clumbo/clumbo_13.png" id="18_5o710"]
+[ext_resource type="Texture2D" uid="uid://b5v4513ig12r1" path="res://scenes/ui/shop/clumbo/clumbo_14.png" id="19_70s2y"]
+[ext_resource type="Texture2D" uid="uid://lom5mb7rd4ln" path="res://scenes/ui/shop/clumbo/clumbo_15.png" id="20_vq812"]
+[ext_resource type="Script" path="res://scenes/ui/shop/clumbo/clumbo.gd" id="21_rwwmw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4tq8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_okxmb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6fu1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tbomn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gijsf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_0v3qi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pqjeq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_faalf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_64jqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_faalf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pqjeq")
+}],
+"loop": false,
+"name": &"talk_1",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_5f1r8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_n7qxn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1uyiq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jkyur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1uyiq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_n7qxn")
+}],
+"loop": false,
+"name": &"talk_2",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_1fpkt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_055yb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_glmub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_1cydp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_glmub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_055yb")
+}],
+"loop": false,
+"name": &"talk_3",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_px68h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_5o710")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_70s2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_vq812")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_70s2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_5o710")
+}],
+"loop": false,
+"name": &"talk_4",
+"speed": 24.0
+}]
+
+[node name="Clumbo" type="AnimatedSprite2D"]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_c4tq8")
+animation = &"talk_4"
+autoplay = "default"
+script = ExtResource("21_rwwmw")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

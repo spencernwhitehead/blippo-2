@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=3 format=3 uid="uid://knygpoxfvnro"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_4h7yl"]
+[ext_resource type="Texture2D" uid="uid://bvkj3w2xyadu7" path="res://resources/meta_upgrades/powerup_weapon_icon.png" id="2_uij8e"]
+
+[resource]
+script = ExtResource("1_4h7yl")
+id = "powerup_weapon"
+max_quantity = 1
+cost = 20
+title = "super weapon"
+description = "makes a powerup appear occasionally that makes your weapon go super mode!"
+sprite = ExtResource("2_uij8e")

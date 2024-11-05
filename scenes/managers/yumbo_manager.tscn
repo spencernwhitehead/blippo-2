@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqmfs6bert0x1"]
+
+[ext_resource type="Script" path="res://scenes/managers/yumbo_manager.gd" id="1_2b6lq"]
+[ext_resource type="PackedScene" uid="uid://ick4ihqrikel" path="res://scenes/yumbo/yumbo.tscn" id="2_ltt4e"]
+
+[node name="YumboManager" type="Node"]
+script = ExtResource("1_2b6lq")
+yumbo_scene = ExtResource("2_ltt4e")
+
+[node name="YumboCooldownTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="YumboCooldownTimer" to="." method="_on_yumbo_cooldown_timer_timeout"]

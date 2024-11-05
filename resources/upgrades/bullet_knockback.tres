@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://bdlv0bj7er68o"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_eu3rc"]
+[ext_resource type="Texture2D" uid="uid://dj40mghu3jh4o" path="res://resources/upgrades/bullet_knockback.png" id="1_sfm4d"]
+
+[resource]
+script = ExtResource("1_eu3rc")
+id = "bullet_knockback"
+max_quantity = 6
+name = "bullet knockback"
+description = "increases bullet knockback by 25%"
+drawing = ExtResource("1_sfm4d")

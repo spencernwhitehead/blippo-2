@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://drffkcvk34q6x"]
+
+[ext_resource type="Script" path="res://scenes/ui/dialog_box.gd" id="1_4nbp2"]
+[ext_resource type="PackedScene" uid="uid://cg07t64teu1ye" path="res://scenes/component/random_stream_player_component.tscn" id="2_udixo"]
+[ext_resource type="AudioStream" uid="uid://c8ir4eeeug74c" path="res://assets/audio/Text Blip.wav" id="3_ejkf3"]
+
+[node name="DialogBox" type="CanvasLayer"]
+script = ExtResource("1_4nbp2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 700
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+self_modulate = Color(0.431373, 0, 1, 1)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"3DPanelContainer"
+
+[node name="Dialog" type="Label" parent="MarginContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+autowrap_mode = 2
+
+[node name="CharacterTimer" type="Timer" parent="."]
+
+[node name="TextBlipPlayer" parent="." instance=ExtResource("2_udixo")]
+volume_db = -20.0
+streams = Array[AudioStream]([ExtResource("3_ejkf3")])

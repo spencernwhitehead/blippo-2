@@ -1,0 +1,50 @@
+[gd_scene load_steps=12 format=3 uid="uid://djro0spa7m0fh"]
+
+[ext_resource type="Script" path="res://scenes/spridget/spridget.gd" id="1_c04ah"]
+[ext_resource type="Texture2D" uid="uid://chwsr3sdt3xah" path="res://scenes/spridget/spridget.png" id="2_65rip"]
+[ext_resource type="PackedScene" uid="uid://disdvhfw0b0mn" path="res://scenes/component/velocity_component.tscn" id="2_nbc35"]
+[ext_resource type="PackedScene" uid="uid://dyi720n03ohaj" path="res://scenes/component/random_stream_player_2d_component.tscn" id="4_b6xlt"]
+[ext_resource type="AudioStream" uid="uid://c5blmjyxu5h0v" path="res://assets/audio/Pickup_coin 1.wav" id="5_acb4b"]
+[ext_resource type="AudioStream" uid="uid://cjdosar62qp0l" path="res://assets/audio/Pickup_coin 2.wav" id="6_6alps"]
+[ext_resource type="AudioStream" uid="uid://qrlq0ny5dy6b" path="res://assets/audio/Pickup_coin 3.wav" id="7_camso"]
+[ext_resource type="AudioStream" uid="uid://ctrge8jtnd5ow" path="res://assets/audio/Pickup_coin 4.wav" id="8_yg0mh"]
+[ext_resource type="AudioStream" uid="uid://dcgq3kvfrpixa" path="res://assets/audio/Pickup_coin 5.wav" id="9_bunbu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uhgen"]
+radius = 190.318
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c0ckn"]
+
+[node name="Spridget" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_c04ah")
+
+[node name="VelocityComponent" parent="." instance=ExtResource("2_nbc35")]
+max_speed = 800
+acceleration = 3.0
+
+[node name="AttractionRadius" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttractionRadius"]
+shape = SubResource("CircleShape2D_uhgen")
+
+[node name="PickupRadius" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRadius"]
+shape = SubResource("CircleShape2D_c0ckn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_65rip")
+
+[node name="RandomStreamPlayer2DComponent" parent="." instance=ExtResource("4_b6xlt")]
+volume_db = -5.0
+streams = Array[AudioStream]([ExtResource("5_acb4b"), ExtResource("6_6alps"), ExtResource("7_camso"), ExtResource("8_yg0mh"), ExtResource("9_bunbu")])
+
+[connection signal="area_entered" from="AttractionRadius" to="." method="_on_attraction_radius_area_entered"]
+[connection signal="area_entered" from="PickupRadius" to="." method="_on_pickup_radius_area_entered"]

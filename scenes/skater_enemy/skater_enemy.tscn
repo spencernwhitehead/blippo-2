@@ -1,0 +1,126 @@
+[gd_scene load_steps=25 format=3 uid="uid://c8eqb15g8mnu3"]
+
+[ext_resource type="Script" path="res://scenes/skater_enemy/skater_enemy.gd" id="1_7v34p"]
+[ext_resource type="PackedScene" uid="uid://cbnujtl5pwtne" path="res://scenes/component/health_component.tscn" id="1_nykbb"]
+[ext_resource type="PackedScene" uid="uid://1g242xiwqleq" path="res://scenes/component/hit_flash_component.tscn" id="2_wgti8"]
+[ext_resource type="PackedScene" uid="uid://cjdk7t60aqvq0" path="res://scenes/component/spridget_drop_component.tscn" id="3_2lmya"]
+[ext_resource type="PackedScene" uid="uid://qevc6f8q4h7c" path="res://scenes/component/heart_drop_component.tscn" id="3_uleni"]
+[ext_resource type="PackedScene" uid="uid://disdvhfw0b0mn" path="res://scenes/component/velocity_component.tscn" id="4_vljov"]
+[ext_resource type="PackedScene" uid="uid://b0d5qa2jlmcvu" path="res://scenes/component/death_component/death_component.tscn" id="5_alawv"]
+[ext_resource type="Texture2D" uid="uid://c1xlxehcn8yrp" path="res://scenes/skater_enemy/skater_0.png" id="6_umg6g"]
+[ext_resource type="Texture2D" uid="uid://cqkl165kdmeqy" path="res://scenes/skater_enemy/skater_1.png" id="7_qfxen"]
+[ext_resource type="Texture2D" uid="uid://dewi2om4lp0wv" path="res://scenes/skater_enemy/skater_2.png" id="8_dolln"]
+[ext_resource type="Texture2D" uid="uid://bnknhlb0o7i0k" path="res://scenes/skater_enemy/skater_5.png" id="8_x4p8x"]
+[ext_resource type="Texture2D" uid="uid://c1u67c7haoecp" path="res://scenes/skater_enemy/skater_3.png" id="9_xh4pq"]
+[ext_resource type="Texture2D" uid="uid://bopd77u0v01ma" path="res://scenes/skater_enemy/skater_4.png" id="10_h4yd1"]
+[ext_resource type="PackedScene" uid="uid://nioejv47fojf" path="res://scenes/component/hurtbox_component.tscn" id="11_6a7ex"]
+[ext_resource type="PackedScene" uid="uid://dyi720n03ohaj" path="res://scenes/component/random_stream_player_2d_component.tscn" id="12_2hi87"]
+[ext_resource type="AudioStream" uid="uid://dqmdh6fy5bn07" path="res://assets/audio/Hit_hurt 1.wav" id="13_lhy23"]
+[ext_resource type="Texture2D" uid="uid://cyg7kjqj05kbx" path="res://scenes/skater_enemy/skater_6.png" id="13_swwhf"]
+[ext_resource type="AudioStream" uid="uid://gns2jhcee23j" path="res://assets/audio/Hit_hurt 2.wav" id="14_tgygd"]
+[ext_resource type="AudioStream" uid="uid://1e5187vd2i6b" path="res://assets/audio/Hit_hurt 3.wav" id="15_8on0b"]
+[ext_resource type="AudioStream" uid="uid://btp7tql6wunia" path="res://assets/audio/Hit_hurt 4.wav" id="16_36or8"]
+[ext_resource type="AudioStream" uid="uid://dbukcama4cd2x" path="res://assets/audio/Hit_hurt 5.wav" id="17_3wbqk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvd8l"]
+radius = 24.0
+height = 106.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mtj37"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("6_umg6g")
+}, {
+"duration": 3.0,
+"texture": ExtResource("8_x4p8x")
+}, {
+"duration": 3.0,
+"texture": ExtResource("6_umg6g")
+}, {
+"duration": 3.0,
+"texture": ExtResource("8_x4p8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qfxen")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dolln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xh4pq")
+}, {
+"duration": 3.0,
+"texture": ExtResource("10_h4yd1")
+}, {
+"duration": 3.0,
+"texture": ExtResource("13_swwhf")
+}, {
+"duration": 3.0,
+"texture": ExtResource("10_h4yd1")
+}, {
+"duration": 3.0,
+"texture": ExtResource("13_swwhf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xh4pq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qfxen")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jinx0"]
+radius = 19.0
+height = 38.0
+
+[node name="SkaterEnemy" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 9
+motion_mode = 1
+script = ExtResource("1_7v34p")
+
+[node name="HealthComponent" parent="." instance=ExtResource("1_nykbb")]
+max_health = 25.0
+
+[node name="HeartDropComponent" parent="." node_paths=PackedStringArray("health") instance=ExtResource("3_uleni")]
+health = NodePath("../HealthComponent")
+
+[node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("2_wgti8")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../AnimatedSprite2D")
+
+[node name="SpridgetDropComponent" parent="." node_paths=PackedStringArray("health") instance=ExtResource("3_2lmya")]
+health = NodePath("../HealthComponent")
+
+[node name="VelocityComponent" parent="." instance=ExtResource("4_vljov")]
+
+[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_alawv")]
+health_component = NodePath("../HealthComponent")
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health", "velocity_component") instance=ExtResource("11_6a7ex")]
+position = Vector2(0, 0)
+collision_layer = 4
+health = NodePath("../HealthComponent")
+velocity_component = NodePath("../VelocityComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_nvd8l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.07, 0.07)
+sprite_frames = SubResource("SpriteFrames_mtj37")
+autoplay = "default"
+frame_progress = 0.230634
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_jinx0")
+
+[node name="RandomStreamPlayer2DComponent" parent="." instance=ExtResource("12_2hi87")]
+streams = Array[AudioStream]([ExtResource("13_lhy23"), ExtResource("14_tgygd"), ExtResource("15_8on0b"), ExtResource("16_36or8"), ExtResource("17_3wbqk")])

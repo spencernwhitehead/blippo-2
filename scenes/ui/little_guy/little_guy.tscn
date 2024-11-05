@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgkroal1u72w4"]
+
+[ext_resource type="Texture2D" uid="uid://dgt84rhg4j38f" path="res://scenes/ui/little_guy/axo_1.png" id="1_rld4j"]
+[ext_resource type="Texture2D" uid="uid://cx8vu444px8xo" path="res://scenes/ui/little_guy/axo_2.png" id="2_7ukek"]
+[ext_resource type="Script" path="res://scenes/ui/little_guy/little_guy.gd" id="3_k8kvl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_edp2r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rld4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7ukek")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="LittleGuy" type="CanvasLayer"]
+layer = 2
+script = ExtResource("3_k8kvl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1866, 1020)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_edp2r")
+autoplay = "default"

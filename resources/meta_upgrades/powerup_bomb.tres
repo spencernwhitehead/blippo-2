@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=3 format=3 uid="uid://0x0qneqygfil"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_waccn"]
+[ext_resource type="Texture2D" uid="uid://dsjnl0y2k438x" path="res://resources/meta_upgrades/powerup_bomb_icon.png" id="2_0ka7f"]
+
+[resource]
+script = ExtResource("1_waccn")
+id = "powerup_bomb"
+max_quantity = 1
+cost = 20
+title = "bombo"
+description = "makes a powerup appear occasionally that does huge damage to everything on screen!"
+sprite = ExtResource("2_0ka7f")

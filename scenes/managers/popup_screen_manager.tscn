@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4d6lqfq6np5k"]
+
+[ext_resource type="Script" path="res://scenes/managers/popup_screen_manager.gd" id="1_dxhq8"]
+[ext_resource type="PackedScene" uid="uid://b8jiupe27ya0t" path="res://scenes/ui/end_screen.tscn" id="2_cv5gs"]
+
+[node name="PopupScreenManager" type="Node"]
+script = ExtResource("1_dxhq8")
+end_screen_scene = ExtResource("2_cv5gs")

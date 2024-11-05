@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=3 format=3 uid="uid://5x0nb4o1ycxe"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_w7n2x"]
+[ext_resource type="Texture2D" uid="uid://bd7r32ioxpuqx" path="res://resources/meta_upgrades/little_guy_icon.png" id="2_n4bdh"]
+
+[resource]
+script = ExtResource("1_w7n2x")
+id = "little_guy"
+max_quantity = 1
+cost = 20
+title = "little guy"
+description = "this guy doesn't do anything, but he'll support you in all your endeavors!"
+sprite = ExtResource("2_n4bdh")

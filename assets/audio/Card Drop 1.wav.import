@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bx5iclkwpa0xo"
+path="res://.godot/imported/Card Drop 1.wav-505c2417fe163658b87f783cd694c90e.sample"
+
+[deps]
+
+source_file="res://assets/audio/Card Drop 1.wav"
+dest_files=["res://.godot/imported/Card Drop 1.wav-505c2417fe163658b87f783cd694c90e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

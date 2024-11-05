@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://bknneqyp5bhb8"]
+
+[ext_resource type="Texture2D" uid="uid://bcc7nd4sxwdnd" path="res://scenes/ability/axe_ability/tile_0118.png" id="1_7kata"]
+[ext_resource type="Script" path="res://scenes/ability/axe_ability/axe_ability.gd" id="1_j1qy4"]
+[ext_resource type="PackedScene" uid="uid://cpjd6wycna3t4" path="res://scenes/component/hitbox_component.tscn" id="3_hqg6d"]
+
+[sub_resource type="Animation" id="Animation_u1ka5"]
+resource_name = "default"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833, 0.1667, 0.25, 0.3333, 0.4167, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 1.0472, 2.0944, 3.14159, 4.18879, 5.23599, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_18asb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y1k0v"]
+_data = {
+"RESET": SubResource("Animation_18asb"),
+"default": SubResource("Animation_u1ka5")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0yk0o"]
+radius = 20.0
+
+[node name="AxeAbility" type="Node2D"]
+rotation = 2.0944
+script = ExtResource("1_j1qy4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_y1k0v")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_7kata")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_hqg6d")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_0yk0o")

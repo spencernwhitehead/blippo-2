@@ -1,0 +1,227 @@
+[gd_scene load_steps=14 format=3 uid="uid://cqghilvp1byqc"]
+
+[ext_resource type="Script" path="res://scenes/ui/shop/shop.gd" id="1_5vt8q"]
+[ext_resource type="Texture2D" uid="uid://dhe1ch5p41xnb" path="res://scenes/ui/shop/shelf.png" id="2_ep81h"]
+[ext_resource type="Texture2D" uid="uid://ban8timk18b5e" path="res://scenes/ui/shop/shop_background.png" id="2_i8cpu"]
+[ext_resource type="PackedScene" uid="uid://dsvxv1mqlcnjy" path="res://scenes/ui/vignette.tscn" id="2_n3dxo"]
+[ext_resource type="Shader" path="res://scenes/ui/shop/test_dither.gdshader" id="3_qqenn"]
+[ext_resource type="Texture2D" uid="uid://cf8solfntpi0" path="res://scenes/ui/shop/counter.png" id="3_vqgnv"]
+[ext_resource type="PackedScene" uid="uid://c66nkor7c1tno" path="res://scenes/ui/shop/clumbo/clumbo.tscn" id="5_6nom6"]
+[ext_resource type="Texture2D" uid="uid://cooso4j0xtsq5" path="res://icon.png" id="10_5w1e0"]
+[ext_resource type="Texture2D" uid="uid://bwtsfcdhijya6" path="res://icon_1.png" id="10_6a8hl"]
+[ext_resource type="PackedScene" uid="uid://vmshcyept0m3" path="res://scenes/ui/sound_button.tscn" id="10_xexcp"]
+[ext_resource type="PackedScene" uid="uid://drffkcvk34q6x" path="res://scenes/ui/dialog_box.tscn" id="11_mbl5s"]
+[ext_resource type="PackedScene" uid="uid://dgkroal1u72w4" path="res://scenes/ui/little_guy/little_guy.tscn" id="11_np626"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bpf0s"]
+shader = ExtResource("3_qqenn")
+shader_parameter/percent = 0.455
+shader_parameter/enable = false
+
+[node name="Shop" type="CanvasLayer"]
+script = ExtResource("1_5vt8q")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.999999, 0.807648, 0.0400348, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_i8cpu")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Shelf" type="TextureRect" parent="."]
+offset_left = 82.0
+offset_top = 51.0
+offset_right = 4114.0
+offset_bottom = 3075.0
+scale = Vector2(0.35, 0.25)
+texture = ExtResource("2_ep81h")
+
+[node name="Counter" type="TextureRect" parent="Shelf"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3287.43
+offset_top = -1652.0
+offset_right = 744.572
+offset_bottom = 1372.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("3_vqgnv")
+
+[node name="Clumbo" parent="." instance=ExtResource("5_6nom6")]
+unique_name_in_owner = true
+position = Vector2(1627, 548)
+
+[node name="Vignette" parent="." instance=ExtResource("2_n3dxo")]
+layer = 2
+
+[node name="DialogBox" parent="." instance=ExtResource("11_mbl5s")]
+
+[node name="ItemsContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 325
+theme_override_constants/margin_top = 140
+
+[node name="ShelvesContainer" type="VBoxContainer" parent="ItemsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 75
+
+[node name="Shelf1" type="HBoxContainer" parent="ItemsContainer/ShelvesContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 150
+
+[node name="Shelf2" type="HBoxContainer" parent="ItemsContainer/ShelvesContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 150
+
+[node name="BackButtonContainer" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -232.0
+offset_right = 273.0
+grow_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="BackButton" parent="BackButtonContainer" instance=ExtResource("10_xexcp")]
+self_modulate = Color(1, 0.160784, 0.172549, 1)
+layout_mode = 2
+text = "back"
+
+[node name="ItemInfoContainer" type="MarginContainer" parent="."]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -450.0
+offset_bottom = 400.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="ItemInfoContainer"]
+self_modulate = Color(0, 0.623529, 0.996078, 1)
+custom_minimum_size = Vector2(350, 350)
+layout_mode = 2
+theme_type_variation = &"Solid3DPanelContainer"
+
+[node name="MarginContainer" type="MarginContainer" parent="ItemInfoContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = -25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ItemInfoContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="ItemName" type="Label" parent="ItemInfoContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "item name"
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="ItemQuantity" type="Label" parent="ItemInfoContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "1/1"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ItemInfoContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ItemCost" type="Label" parent="ItemInfoContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "10"
+vertical_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="ItemInfoContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_6a8hl")
+
+[node name="Control" type="Control" parent="ItemInfoContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BuyButton" parent="ItemInfoContainer/PanelContainer/MarginContainer/VBoxContainer/Control" instance=ExtResource("10_xexcp")]
+unique_name_in_owner = true
+self_modulate = Color(0.133333, 0.839216, 0.25098, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.999
+offset_right = 254.254
+offset_bottom = 198.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 48
+text = "buy"
+
+[node name="FillerButtonIgnore" type="Button" parent="ItemInfoContainer/PanelContainer/MarginContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 2
+text = "fills space for buy button"
+
+[node name="YumboContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="YumboContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="YumboContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("10_5w1e0")
+expand_mode = 1
+
+[node name="CurrentYumbos" type="Label" parent="YumboContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 48
+text = ": 0"
+vertical_alignment = 2
+
+[node name="PostProcessingLayer" type="CanvasLayer" parent="."]
+layer = 3
+visible = false
+
+[node name="RedDitherEffect" type="ColorRect" parent="PostProcessingLayer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_bpf0s")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LittleGuy" parent="." instance=ExtResource("11_np626")]
+
+[connection signal="pressed" from="BackButtonContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ItemInfoContainer/PanelContainer/MarginContainer/VBoxContainer/Control/BuyButton" to="." method="_on_buy_button_pressed"]

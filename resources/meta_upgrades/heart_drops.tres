@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=3 format=3 uid="uid://dogm0ja7qf2wg"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_1e5o8"]
+[ext_resource type="Texture2D" uid="uid://dxhsyt7ag4015" path="res://resources/meta_upgrades/heart_drops_icon.png" id="2_4titu"]
+
+[resource]
+script = ExtResource("1_1e5o8")
+id = "heart_drops"
+max_quantity = 5
+cost = 10
+title = "heart drops"
+description = "makes it so enemies have a small chance of dropping hearts for recovering health! each consecutive upgrade increases the chance a little!"
+sprite = ExtResource("2_4titu")

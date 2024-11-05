@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://qevc6f8q4h7c"]
+
+[ext_resource type="Script" path="res://scenes/component/heart_drop_component.gd" id="1_0gwh0"]
+[ext_resource type="PackedScene" uid="uid://dn01ffqtjrlwx" path="res://scenes/heart/heart.tscn" id="2_nx7wd"]
+
+[node name="HeartDropComponent" type="Node"]
+script = ExtResource("1_0gwh0")
+heart_scene = ExtResource("2_nx7wd")

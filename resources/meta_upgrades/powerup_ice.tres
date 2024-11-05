@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=3 format=3 uid="uid://lw1tsxnrpybh"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_5ervw"]
+[ext_resource type="Texture2D" uid="uid://d1vig6jkbnben" path="res://resources/meta_upgrades/powerup_ice_icon.png" id="2_fxugq"]
+
+[resource]
+script = ExtResource("1_5ervw")
+id = "powerup_ice"
+max_quantity = 1
+cost = 20
+title = "freezy guy"
+description = "makes a powerup appear occasionally that freezes everything for a short while!"
+sprite = ExtResource("2_fxugq")

@@ -1,0 +1,108 @@
+[gd_scene load_steps=11 format=3 uid="uid://ick4ihqrikel"]
+
+[ext_resource type="Script" path="res://scenes/yumbo/yumbo.gd" id="1_07dqb"]
+[ext_resource type="Texture2D" uid="uid://cbmk87bkgv4ef" path="res://scenes/yumbo/yumbo_1.png" id="2_tsoms"]
+[ext_resource type="Texture2D" uid="uid://bilg4eokq8ygc" path="res://scenes/yumbo/yumbo_2.png" id="3_tc8ij"]
+[ext_resource type="Texture2D" uid="uid://d2u6wdamxlh4y" path="res://scenes/yumbo/yumbo_3.png" id="4_ifie4"]
+[ext_resource type="Texture2D" uid="uid://ddf6himlcfps3" path="res://scenes/yumbo/yumbo_4.png" id="5_d36sw"]
+[ext_resource type="Texture2D" uid="uid://d0c7jje4vr0ik" path="res://scenes/yumbo/yumbo_5.png" id="6_q3rwa"]
+[ext_resource type="Texture2D" uid="uid://wsoey2tq2ewp" path="res://scenes/yumbo/yumbo_6.png" id="7_46rkf"]
+[ext_resource type="Texture2D" uid="uid://da4e345s8tlno" path="res://scenes/yumbo/yumbo_7.png" id="8_03rcr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pw7bt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tsoms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tc8ij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tsoms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ifie4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tsoms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d36sw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tsoms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_q3rwa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tsoms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tc8ij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tsoms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ifie4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tsoms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d36sw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tsoms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_q3rwa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tsoms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_46rkf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tsoms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_03rcr")
+}],
+"loop": true,
+"name": &"yumbilate",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4m6uk"]
+radius = 24.0
+
+[node name="Yumbo" type="Node2D"]
+script = ExtResource("1_07dqb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4.76837e-07, 5.96046e-08)
+scale = Vector2(0.075, 0.075)
+sprite_frames = SubResource("SpriteFrames_pw7bt")
+animation = &"yumbilate"
+autoplay = "default"
+frame_progress = 0.136404
+
+[node name="PickupRadius" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRadius"]
+shape = SubResource("CircleShape2D_4m6uk")
+
+[node name="AddYumboSoundHere2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="area_entered" from="PickupRadius" to="." method="_on_pickup_radius_area_entered"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=3 format=3 uid="uid://4b80e0srqf34"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_l4yvr"]
+[ext_resource type="Texture2D" uid="uid://cpwkgtv4ecdrr" path="res://resources/meta_upgrades/powerup_shield_icon.png" id="2_oofr1"]
+
+[resource]
+script = ExtResource("1_l4yvr")
+id = "powerup_shield"
+max_quantity = 1
+cost = 20
+title = "shield"
+description = "makes a powerup appear occasionally that gives you a shield for extra defense!"
+sprite = ExtResource("2_oofr1")

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://6pyd3wc8swjr"
+path="res://.godot/imported/transition out.wav-6eb7919a1c35735fe5b615085c27f5d6.sample"
+
+[deps]
+
+source_file="res://assets/audio/transition out.wav"
+dest_files=["res://.godot/imported/transition out.wav-6eb7919a1c35735fe5b615085c27f5d6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

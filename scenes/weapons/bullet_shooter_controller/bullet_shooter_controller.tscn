@@ -1,0 +1,23 @@
+[gd_scene load_steps=8 format=3 uid="uid://degwd0nnak0od"]
+
+[ext_resource type="Script" path="res://scenes/weapons/bullet_shooter_controller/bullet_shooter_controller.gd" id="1_a7mrn"]
+[ext_resource type="PackedScene" uid="uid://1ga6baq7r5ns" path="res://scenes/weapons/bullet_shooter/bullet.tscn" id="2_3gb2k"]
+[ext_resource type="PackedScene" uid="uid://dyi720n03ohaj" path="res://scenes/component/random_stream_player_2d_component.tscn" id="3_hv2qi"]
+[ext_resource type="AudioStream" uid="uid://dxkr7g8rhfdjn" path="res://assets/audio/Laser_shoot 1.wav" id="4_115og"]
+[ext_resource type="AudioStream" uid="uid://f11dw13dxnk0" path="res://assets/audio/Laser_shoot 2.wav" id="5_gitwt"]
+[ext_resource type="AudioStream" uid="uid://c1o8cpdn13rtt" path="res://assets/audio/Laser_shoot 3.wav" id="6_54um5"]
+[ext_resource type="AudioStream" uid="uid://dpebc62lw7ia1" path="res://assets/audio/Laser_shoot 4.wav" id="7_q8hlg"]
+
+[node name="DefaultBulletShooterController" type="Node"]
+script = ExtResource("1_a7mrn")
+bullet_scene = ExtResource("2_3gb2k")
+
+[node name="BulletTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="RandomStreamPlayer2DComponent" parent="." instance=ExtResource("3_hv2qi")]
+volume_db = -5.0
+max_distance = 100000.0
+attenuation = 1.63538e-05
+streams = Array[AudioStream]([ExtResource("4_115og"), ExtResource("5_gitwt"), ExtResource("6_54um5"), ExtResource("7_q8hlg")])
